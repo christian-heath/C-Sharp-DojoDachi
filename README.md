@@ -1,0 +1,2 @@
+# DojoDachi
+ASP.NET C# DojoDachi (tamagotchi) interactive game. Click a button to feed, play, sleep, or work your DojoDachi. Each of these activities will increase one of your DojoDachi's attributes. Increase your DojoDachi's fullness, happiness, and energy over 100 and you win! You were a great owner. However if your fullness, happiness, or energy ever get below 0 then your dojodachi will perish due to your negligence :(, but don't worry! You can always restart another game and try again!
