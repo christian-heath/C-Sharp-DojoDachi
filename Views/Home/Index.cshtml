@@ -1,0 +1,45 @@
+@{
+ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="col-md-3 text-center">Fullness: @ViewBag.currentDachi.Fullness</div>
+    <div class="col-md-3 text-center">Happiness: @ViewBag.currentDachi.Happiness</div>
+    <div class="col-md-3 text-center">Meals: @ViewBag.currentDachi.Meals</div>
+    <div class="col-md-3 text-center">Energy: @ViewBag.currentDachi.Energy</div>
+</div>
+<div class="card">
+    <div class="card-block">
+        @if(ViewBag.currentDachi.Fullness < 1 || ViewBag.currentDachi.Happiness < 1) { <form asp-action="New" method="POST"
+            class="col-md-3">
+            <input type="submit" value="Restart" class="btn btn-primary btn-lg">
+            </form>
+            }
+            @if(ViewBag.currentDachi.Fullness > 99 && ViewBag.currentDachi.Happiness > 99 &&
+            ViewBag.currentDachi.Energy > 99)
+            {
+            <form asp-action="New" method="POST" class="col-md-3">
+                <input type="submit" value="Restart" class="btn btn-primary btn-lg">
+            </form>
+            }
+            <img src="~/images/panda.jpg" id="panda" class="rounded mx-auto d-block">
+            <p class="text-center">@ViewBag.currentDachi.Messages</p>
+            @if(ViewBag.currentDachi.Fullness < 99 && ViewBag.currentDachi.Happiness < 99 &&
+            ViewBag.currentDachi.Energy < 99 && ViewBag.currentDachi.Fullness > 1 || ViewBag.currentDachi.Happiness > 1)
+            {
+                <div class="row" id="actions">
+                    <form class="col-md-3 text-center" asp-action="update" asp-controller="Home" method="POST">
+                        <input type="submit" name="action" value="Feed" class="btn btn-basic">
+                    </form>
+                    <form class="col-md-3 text-center" asp-action="update" asp-controller="Home" method="POST">
+                        <input type="submit" name="action" value="Play" class="btn btn-basic">
+                    </form>
+                    <form class="col-md-3 text-center" asp-action="update" asp-controller="Home" method="POST">
+                        <input type="submit" name="action" value="Work" class="btn btn-basic">
+                    </form>
+                    <form class="col-md-3 text-center" asp-action="update" asp-controller="Home" method="POST">
+                        <input type="submit" name="action" value="Sleep" class="btn btn-basic">
+                    </form>
+                </div>
+            }
+    </div>
+</div>
